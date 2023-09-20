@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import React,{useMemo ,useCallback, useReducer, useRef } from 'react';
 import TodoEditor from './component/TodoEditor';
 import TodoList from './component/TodoList';
+import Header from './component/Header';
 
 const mockTodo = [
   {
@@ -79,6 +80,7 @@ function App() {
 
   return (
     <div className='App'>
+      <Header/>
       <TodoStateContext.Provider value={todo}>
         <TodoDispatchContext.Provider value={memoizedDispatches}>
           <TodoEditor/>

@@ -29,15 +29,15 @@ const TodoEditor = ({}) => {
 
   return (
     <div className="TodoEditor">
-      <h4>새로운 Todo 작성하기</h4>
+      <h4>중간고사 일정표</h4>
       <div className="editor_wrapper">
-        <input
-          ref={inputRef}
-          value={content}
-          onChange={onChangeContent}
-          onKeyDown={onKeyDown}
-          placeholder="새로운 todo..."
-        />
+        <select ref={inputRef} value={content} onChange={onChangeContent} onKeyDown={onKeyDown}>
+          <option>과목을 선택해주세요.</option>
+          <option value={"사과"}>사과</option>
+          <option value={"바나나"}>바나나</option>
+          <option value={"복숭아"}>복숭아</option>
+          <option value={"eheh"}>포도</option>
+        </select>
         <button onClick={onSubmit}>추가</button>
       </div>
     </div>

@@ -36,9 +36,9 @@ const TodoList = () => {
   return (
     <div className="TodoList">
       <h4>Todo List🪳</h4>
-      <div>총개수 : {totalCount}</div>
-      <div>완료된 할 일:{doneCount}</div>
-      <div>아직 완료하지 못한 할 일: {notDoneCount}</div>
+      <div>총 과목 수 : {totalCount}</div>
+      <div>시험 친 과목 수:{doneCount}</div>
+      <div>시험치지 않은 과목: {notDoneCount}</div>
       <input
         value={search}
         onChange={onChangeSearch}
