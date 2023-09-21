@@ -1,10 +1,10 @@
-import React,{useContext} from 'react';
+import React, { useContext } from 'react';
 import { TodoDispatchContext } from '../App';
 import './TodoItem.css';
 
-const TodoItem = ({id, content, isDone, createDate}) => {
-  const {onUpdate , onDelete} = useContext(TodoDispatchContext);
-  
+const TodoItem = ({ id, content, isDone, createDate, date }) => {
+  const { onUpdate, onDelete } = useContext(TodoDispatchContext);
+
   const onChangeCheckbox = () => {
     onUpdate(id);
   };
@@ -21,6 +21,8 @@ const TodoItem = ({id, content, isDone, createDate}) => {
       </div>
       <div className={dateColClass}>{content}</div>
       <div className='date_col'>
+        {date && <p>{date}</p>} {/* 선택한 날짜가 있을 때만 표시 */}
+        <br />
         {new Date(createDate).toDateString()}
       </div>
       <div className='btn_col'>

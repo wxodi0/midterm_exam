@@ -1,6 +1,4 @@
-import logo from './logo.svg';
 import './App.css';
-import styled from 'styled-components';
 import React,{useMemo ,useCallback, useReducer, useRef } from 'react';
 import TodoEditor from './component/TodoEditor';
 import TodoList from './component/TodoList';
@@ -47,14 +45,14 @@ function App() {
   const [todo, dispatch] = useReducer(reducer,mockTodo);
   const idRef = useRef(3);
 
-  const onCreate = (content) => {
+  const onCreate = (content, selectedDate) => { 
     dispatch({
-      type:"CREATE",
-      newItem : {
-        id : idRef.current,
+      type: "CREATE",
+      newItem: {
+        id: idRef.current,
         content,
-        isDone : false,
-        createDate : new Date().getTime(),
+        isDone: false,
+        createDate: selectedDate, 
       }
     });
     idRef.current += 1;

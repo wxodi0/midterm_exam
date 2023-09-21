@@ -35,7 +35,7 @@ const TodoList = () => {
   
   return (
     <div className="TodoList">
-      <h4>Todo List🪳</h4>
+      <h4>통계</h4>
       <div>총 과목 수 : {totalCount}</div>
       <div>시험 친 과목 수:{doneCount}</div>
       <div>시험치지 않은 과목: {notDoneCount}</div>
