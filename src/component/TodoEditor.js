@@ -18,12 +18,12 @@ const TodoEditor = ({}) => {
   }
 
   const onSubmit = () => {
-    if (!content || selectedDate === "") { 
+    if (!content || selectedDate === "") {
       inputRef.current.focus();
       alert("과목 및 날짜를 선택해주세요");
       return;
     }
-    onCreate({ content, selectedDate: new Date().getTime() }); 
+    onCreate(content, selectedDate);
     setContent("");
     setSelectedDate("");
   }
@@ -39,21 +39,14 @@ const TodoEditor = ({}) => {
       <h4>중간고사 일정표</h4>
       <div>
         <div className="dayList">
-          <button onClick={() => onSelectDate('9월 16')}>9월 16</button>
-          <button onClick={() => onSelectDate('9월 17')}>9월 17</button>
-          <button onClick={() => onSelectDate('9월 18')}>9월 18</button>
+          <button className="dayBtn" onClick={() => onSelectDate('2023/10/16')}><p>9월 16</p></button>
+          <button className="dayBtn" onClick={() => onSelectDate('2023/10/17')}><p>9월 17</p></button>
+          <button className="dayBtn" onClick={() => onSelectDate('2023/10/18')}><p>9월 18</p></button>
         </div>
       </div>
       <div className="editor_wrapper">
-        선택한 날짜: {selectedDate && <p>{selectedDate}</p>}
-        <select ref={inputRef} value={content} onChange={onChangeContent} onKeyDown={onKeyDown}>
-          <option value="">과목을 선택해주세요.</option>
-          <option value={"수학"}>수학</option>
-          <option value={"국어"}>국어</option>
-          <option value={"영어"}>영어</option>
-          <option value={"사회"}>사회</option>
-          <option value={"과학"}>과학</option>
-        </select>
+        <div className="daySection">선택한 날짜: {selectedDate && <p>{selectedDate}</p>}</div>
+        <input ref={inputRef} value={content} onChange={onChangeContent} onKeyDown={onKeyDown} placeholder="과목을 추가하세요"></input>
         <button className="SubButton" onClick={onSubmit}>추가</button>
       </div>
     </div>
